@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+  <title>Property Tax Calculator</title>
+  <style>
+	  @charset "UTF-8";
+
+ body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: rgb(203, 194, 245);
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 3px solid rgb(206, 216, 222);
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgb(84, 81, 121);
+    }
+    .container2 {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 3px solid rgb(206, 216, 222);
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgb(84, 81, 121);
+    }
+    .container3 {
+	 left: 100px;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 3px solid rgb(206, 216, 222);
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgb(84, 81, 121);
+    }
+.button-container {
+  display: flex;
+  flex-direction: column; /* Align children vertically */
+      align-items: center;}
+
+button {
+  max-width: 200px;
+  background-color: rgb(139, 84, 246);
+  align-self: center;
+  cursor: pointer;
+}
+
+    h1 {
+      color: rgb(77, 68, 233);
+      text-align: center;
+    }
+
+    label {
+      font-weight: bold;
+      color: rgb(10, 12, 14);
+            margin-bottom: 10px;
+
+      margin-right: 10px;
+            margin-left: 10px;
+
+    }
+input[type="radio"] {
+      margin-right: 5px; /* Adjust spacing between radio buttons and labels */
+      vertical-align: middle; /* Align radio buttons vertically with labels */
+    }
+    select,
+    input[type="number"],
+    button {display: block;
+      width: 80%;
+      padding: 5px;
+      margin-bottom: 10px;
+            margin-left: 15px;
+
+      border: 1px solid rgb(155, 162, 204);
+      border-radius: 2px;
+      font-family: 'Times New Roman', Times, serif; /* Apply Times New Roman font to inputs and select */
+
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Align items on the same row with space between */
+      margin-bottom: 5px;
+    }
+    .form-row label{
+		flex-basis: 20%;
+	}
+	.form-row input[type="number"],
+    
+    .form-row select {
+      flex: 1;
+    }
+
+    .form-row button {
+      background-color: rgb(189, 162, 246);
+      color: rgb(210, 198, 227);
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: auto; /* Shift the button to the right */
+
+    }
+
+    .result { font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+ .radio-options {
+      margin-left: 180px;
+            
+    }
+    .radio-options label {
+      font-weight: normal;
+    }
+
+  </style>
+<!--  <link rel="stylesheet" type="text/css" href="style.css">-->
+</head>
+<body>
+  <div class="container">
+    <h1>Property Tax Calculator</h1>
+    <center>
+		<h3>Property Tax = (Annual Renatl Value * Tax Rate)</h3>
+		</center>
+    
+    <div class="form-row">
+
+   <label for="ARV">Annual Rental Value:</label>
+    <input type="number" id="ARV" step="any" required><br>
+    
+    </div>
+
+                  <div class="form-row">
+
+    <label for="taxRate">Tax Rate (as a decimal):</label>
+    <input type="number" id="taxRate" step="any" required><br>
+                  </div>
+<div class="button-container">
+  <button onclick="calculatePropertyTax()">Calculate Property Tax</button>
+</div>
+    <p id="result"></p>
+  </div>
+    
+		
+	<div class="container3" >
+		<h4>The Annual Rental Value (ARV)</h4>
+		<p>The Annual Rental Value (ARV) of a property is calculated by the Municipal Corporation of your city based on the following factors:
+<br>
+       <br>    1. Size of the property: The ARV is calculated per square foot, so the larger the property, the higher the ARV.
+        <br>   2. Location of the property: The ARV is higher for properties in prime locations, such as the city center or close to major amenities.
+       <br>    3. Condition of the property: The ARV is higher for properties that are in good condition and have been well-maintained.
+      <br>     4. Amenities provided: The ARV is higher for properties that have amenities such as a swimming pool, gym, or parking.
+<br>           5. Market conditions: The ARV is also affected by market conditions. If the property market is hot, the ARV will be higher.
+<br>
+The government publishes the ARV of properties in the city every year. You can find the ARV for your property by visiting their website or by contacting them directly.</p>
+	</div>
+	
+  <script>
+function calculatePropertyTax() {
+  const ARV = document.getElementById('ARV').value;
+  const taxRate = parseFloat(document.getElementById('taxRate').value);
+  if (isNaN(ARV) || isNaN(taxRate)) {
+      alert('Please enter valid values.');
+      return;}else{
+		  const propertyTax = ARV*taxRate;
+    document.getElementById('result').textContent = `Property Tax: Rs ${propertyTax.toFixed(2)}`;
+  }
+	  }
+
+
+
+
+
+
+  </script>
+</body>
+</html>
